@@ -12,13 +12,20 @@ function exercise1(start) {
 
   // TODO 1a: under duration, store a yes/no fact about the sound: let isMuted = false;
   //          No quotation marks: false is not text, it's a boolean.
+
+  let isMuted = false;
+
   // TODO 1b: log it: console.log("Exercise 1: isMuted is " + isMuted);
+
+  console.log("exercise 1: isMuted is" + isMuted)
 
   synth.triggerAttackRelease(note, duration, start);
 
   // TODO 1c: for now, you make the decision. Change isMuted to true, then put // in front of the
   //          line that plays, so it doesn't run. Press the button: silence. In exercise 5 the code
   //          decides for you.
+
+  
   // TODO 1d: take the // away again, and set isMuted back to false.
 }
 

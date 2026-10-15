@@ -11,8 +11,17 @@ function exercise6(start) {
   //            anything else:         play "C5", a high note
   //          Use if (bpm < 80) { … } else if (bpm < 120) { … } else { … }
   //          Each block has one synth.triggerAttackRelease(…, "4n", start);
-  // TODO 6b: predict, then press, with bpm at 60, 100 and 140. Then try the edges: 80 and 120.
-}
+ //slower than 120:       play "C4", in the middle
+  if (bpm < 80) {
+    synth.triggerAttackRelease("C3", "4n", start);
+  } else if (bpm < 120) {
+    synth.triggerAttackRelease("C4", "4n", start);
+  } else {
+    synth.triggerAttackRelease("C5", "4n", start);
+  }
+
+  }
+
 
 // ---------- You don't need to change anything below this line ----------
 

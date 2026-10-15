@@ -7,6 +7,13 @@ function exercise8(start) {
 
   // TODO 8a: as the first line of each block, log which block ran and why, for example:
   //            console.log("Exercise 8: playing the slow pattern because bpm is " + bpm);
+
+console.log("Exercise 8: playing the slow pattern because bpm is " + (bpm > 60)); // TRUE
+
+console.log("Exercise 8: playing the slow pattern because bpm is " + (bpm > 120)); // TRUE
+
+console.log("Exercise 8: playing the slow pattern because bpm is " + bpm); // 150
+
   // TODO 8b: press the button. Which block ran? Is it the one you expected for 150?
   // TODO 8c: fix the order of the questions, so 150 plays the fast pattern and 90 still plays
   //          the middle one. Then test 50, 90 and 150.

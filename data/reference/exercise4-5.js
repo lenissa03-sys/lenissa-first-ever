@@ -9,6 +9,7 @@ function playNote(name, length, time) {
 const rootNote = "C4";
 const thirdNote = "E4";
 const fifthNote = "G4";
+
 let noteLength = "8n"; // change this once and every note in the riff changes
 
 function exercise4(start) {

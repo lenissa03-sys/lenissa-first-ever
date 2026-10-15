@@ -6,8 +6,24 @@ let fullNote = pitchName + octave;
 console.log("Exercise 2: fullNote is " + fullNote);
 
 // TODO 2a: raise the octave by one: octave = octave + 1;
+octave = octave + 1;
 // TODO 2b: log fullNote again. Predict first: has it changed?
+console.log(fullNote);
+
+//yes fullnote is E4, fullnote is pithname (E) + octave (4) = E4
+
+fullNote = pitchName + octave;
+
 // TODO 2c: rebuild it from its parts (fullNote = pitchName + octave;) and log it once more.
+
+console.log(E4 = "E" + 4)
+//is this wrong
+console.log("exercise 2" + fullNote)
+console.log("Exercise 2: fullNote is " + fullNote);
+console.log(fullNote)
+
+
+// wich oneeeee????
 
 function exercise2(start) {
   synth.triggerAttackRelease(fullNote, "4n", start);
