@@ -6,13 +6,32 @@
 const synth = new Tone.Synth().toDestination();
 
 // ---------- Exercise 1: hear the event ----------
-// 1a Before you press anything, write down what you think event.key will be for:
-//    a   7   the space bar   Shift   the up arrow
+// 1a Before you press anything, write down what you think event.key will be for: which key will play
+//    a - "a"
+//    7 - "7"
+// the space bar - "spaceBar"
+// Shift - "Shift"
+// the up arrow "UpArrow"
+
 // 1b Click the page and press them. Was each one what you expected?
-document.addEventListener("keydown", function (event) {
-  Tone.start(); // sound can only start after a key press or a click
+
+
+function handleKeyDown(event) {
+  console.log("handleKeyDown was called");
+  Tone.start();
   console.log(event.key);
-});
+  if (event.key === "a")  {
+    synth.triggerAttackRelease("C4", "8n");
+  }
+  else if (event.key === "l") {
+    synth.triggerAttackRelease("B4", "8n");
+  }
+  else if (event.key === "e") {
+    synth.triggerAttackRelease("G4", "8n");
+  }
+}
+document.addEventListener("keydown", handleKeyDown);
+
 
 // ---------- Exercise 2: one key, one sound ----------
 // TODO 2: inside the listener above, under the console.log, play "C4" when the key is "a":
@@ -25,6 +44,7 @@ document.addEventListener("keydown", function (event) {
 // TODO 3b: play a three-note tune. (Try: d s a s d d d.)
 
 // ---------- Exercise 4: name the handler ----------
+
 // TODO 4a: move the whole function out of addEventListener and give it a name:
 //            function handleKeyDown(event) {
 //              …everything that was inside…

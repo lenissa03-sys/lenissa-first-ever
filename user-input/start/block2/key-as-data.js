@@ -10,17 +10,16 @@ let octave = 4;
 
 function handleKeyDown(event) {
   Tone.start(); // sound can only start after a key press or a click
-  console.log(event.key);
+  console.log("Key " + event.key + " played " + note);
+  console.log ("Key Enter plays nothing");
 
-  if (event.key === "a") {
-    synth.triggerAttackRelease("C4", "8n");
-  } else if (event.key === "s") {
-    synth.triggerAttackRelease("D4", "8n");
-  } else if (event.key === "d") {
-    synth.triggerAttackRelease("E4", "8n");
-  }
-}
+  if (event.key.length === 1 && event.key >= "a" && event.key <= "z") { // event.key.length === 1.keeps only keys that type one character
+    const note = noteForKey(event.key, octave);
+    if (note !== "") {
+    synth.triggerAttackRelease(note, "8n");
+    }
 
+}}
 document.addEventListener("keydown", handleKeyDown);
 
 // ---------- Exercise 5: keys are note names ----------
@@ -28,6 +27,10 @@ document.addEventListener("keydown", handleKeyDown);
 // 5a Predict first, in a comment: what do these give? Strings compare in alphabetical order.
 //      "c" >= "a"      "h" <= "g"      "Enter" >= "a"
 //    Log them to check:  console.log("c" >= "a");
+console.log("c" >= "a") //true
+console.log("h" <= "g") //false
+console.log("c" >= "a") //true
+
 // TODO 5b: replace the whole if / else if chain in handleKeyDown with:
 //            if (event.key.length === 1 && event.key >= "a" && event.key <= "g") {
 //              const note = event.key.toUpperCase() + octave;
@@ -47,6 +50,33 @@ document.addEventListener("keydown", handleKeyDown);
 //              }
 //              return "";
 //            }
+function letterNote(key, oct) {
+  if (key.length === 1 && key >= "a" && key <= "g") {
+    return key.toUpperCase() + oct;
+  }
+  return "";
+}
+
+  function noteForKey(key, oct) {
+  if (key === "a") {
+    return "C" + oct;
+  } else if (key === "s") {
+    return "D" + oct;
+  } else if (key === "d") {
+    return "E" + oct;
+  } else if (key === "f") {
+    return "F" + oct;
+  } else if (key === "g") {
+    return "G" + oct;
+  } else if (key === "h") {
+    return "A" + oct;
+  } else if (key === "k") {
+    return "C" + oct;
+  }}
+
+
+
+
 // TODO 6b: write noteForKey(key, oct) next to it. Use if / else if: "a" gives back "C" + oct,
 //          "s" gives back "D" + oct … and "k" gives back "C" + (oct + 1). Any other key: "".
 // TODO 6c: in handleKeyDown, ask noteForKey, and play only if the answer isn't "":
@@ -68,7 +98,9 @@ document.addEventListener("keydown", handleKeyDown);
 //          and ask noteForKey for the note in playOctave.
 // TODO 7c: with Shift held, nothing plays. Why? Fix it: look up event.key.toLowerCase() instead.
 
+function event.key.toLowerCase()
 // ---------- Exercise 8: make the input visible ----------
 // TODO 8: replace console.log(event.key) with one line that says what came in and what played:
 //            console.log("Key " + event.key + " played " + note);
 //          and, for keys that aren't notes, log "Key Enter plays nothing" (with the real key).
+

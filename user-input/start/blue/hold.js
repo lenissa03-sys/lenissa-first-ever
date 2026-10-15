@@ -3,7 +3,7 @@
 // After each step: save, click the page, press keys, check the console, and commit.
 
 // The instrument. B1 changes it.
-const synth = new Tone.Synth().toDestination();
+const synth = new Tone.PolySynth().toDestination();
 
 // What the instrument remembers between key presses.
 let octave = 4;
@@ -32,6 +32,8 @@ function noteForKey(key, oct) {
 
 function handleKeyDown(event) {
   Tone.start(); // sound can only start after a key press or a click
+
+
 
   const key = event.key.toLowerCase();
   let playOctave = octave;
